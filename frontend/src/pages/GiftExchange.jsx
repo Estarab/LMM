@@ -71,7 +71,8 @@ const GiftExchange = () => {
 
     try {
       // Submit the user details to the backend
-      const response = await axios.post('http://localhost:5000/api/submit-participant', {
+      // const response = await axios.post('http://localhost:5000/api/submit-participant', {
+        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/submit-participant`, {
         name: userDetails.name,
         surname: userDetails.surname,
         phone: userDetails.phone,

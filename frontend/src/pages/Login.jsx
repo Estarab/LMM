@@ -11,11 +11,18 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // try {
+    //   // Check if the phone number exists in the database
+    //   const response = await axios.get('http://localhost:5000/api/auth/check', {
+    //     params: { phone },
+    //   });
+
     try {
       // Check if the phone number exists in the database
-      const response = await axios.get('http://localhost:5000/api/auth/check', {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/check`, {
         params: { phone },
       });
+    
 
       // If the phone number is found, navigate to the GiftExchangePicker
       if (response.data.message === 'User is signed up!') {
