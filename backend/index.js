@@ -2,10 +2,11 @@ import express from 'express';             // Using ES import
 import cors from 'cors';                  // Using ES import
 import dotenv from 'dotenv';              // Using ES import
 import mongoose from 'mongoose';          // Using ES import
-import participantsRoute from './routes/participants.js'; // Using ES import with file extension
+// import participantsRoute from './routes/participants.js'; // Using ES import with file extension
 import Participant from './models/Participant.js'; // Using ES import with file extension
 import User from './models/User.js';  
 import authRoute from './routes/auth.js';      // Assuming we create a User model for sign-up/login
+
 
 dotenv.config(); // Load environment variables from .env
 
@@ -25,9 +26,9 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes for participants
-app.use('/api/participants', participantsRoute);
+// app.use('/api/participants', participantsRoute);
 app.use('/api/auth', authRoute); // Use the auth route for signup and check
-app.use('/api/participants', participantsRoute);
+// app.use('/api/participants', participantsRoute);
 
 // Route for user sign-up
 app.post('/api/signup', async (req, res) => {
