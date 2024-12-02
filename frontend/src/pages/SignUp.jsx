@@ -13,22 +13,22 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Send data to the backend for signup
-      const response = await axios.post('http://localhost:5000/api/auth/signup', {
-        name,
-        surname,
-        phone,
-      });
-
-
     // try {
     //   // Send data to the backend for signup
-    //   const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, {
+    //   const response = await axios.post('http://localhost:5000/api/auth/signup', {
     //     name,
     //     surname,
     //     phone,
     //   });
+
+
+    try {
+      // Send data to the backend for signup
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, {
+        name,
+        surname,
+        phone,
+      });
     
     
     
@@ -41,7 +41,7 @@ function SignUp() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-green-400 to-blue-500">
+    <div className="flex justify-center items-center min-h-screen  bg-gradient-to-r from-purple-400 to-pink-500">
       <div className="bg-white p-8 rounded-xl shadow-xl w-full max-w-md transition-all duration-300 transform hover:scale-105">
         <h2 className="text-xl font-bold text-center text-gray-700 mb-6">Sign Up to Participate in the LMM Zambia Christmas Gift Exchange</h2>
         {/* <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">Create an Account</h2> */}
@@ -84,7 +84,7 @@ function SignUp() {
 
           <button
             type="submit"
-            className="w-full py-3 bg-green-500 text-white font-bold rounded-md hover:bg-green-600 transition-all duration-300"
+            className="w-full py-3 bg-purple-500 text-white font-bold rounded-md hover:bg-purple-600 transition-all duration-300"
           >
             Sign Up
           </button>
