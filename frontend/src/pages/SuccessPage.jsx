@@ -15,12 +15,12 @@ const SuccessPage = () => {
           Note that you need to save your password as you will use it to login when you want to pick someone to buy a gift for.
         </p>
         <div className="flex justify-center">
-          {/* <button
-            onClick={() => navigate('/login')}
+          <button
+            onClick={() => navigate('#')}
             className="py-2 px-6 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition-all duration-300"
           >
             Go to Login
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

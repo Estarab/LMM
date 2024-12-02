@@ -34,7 +34,7 @@ function SignUp() {
     
 
       alert(response.data.message);
-      navigate('/login'); // Redirect to Gift Exchange if sign-up is successful
+      navigate('/success'); // Redirect to Gift Exchange if sign-up is successful
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong');
     }
