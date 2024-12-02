@@ -13,22 +13,22 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // try {
-    //   // Send data to the backend for signup
-    //   const response = await axios.post('http://localhost:5000/api/auth/signup', {
-    //     name,
-    //     surname,
-    //     phone,
-    //   });
-
-
     try {
       // Send data to the backend for signup
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, {
+      const response = await axios.post('http://localhost:5000/api/auth/signup', {
         name,
         surname,
         phone,
       });
+
+
+    // try {
+    //   // Send data to the backend for signup
+    //   const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/signup`, {
+    //     name,
+    //     surname,
+    //     phone,
+    //   });
     
     
     
