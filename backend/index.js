@@ -14,8 +14,26 @@ const app = express();
 app.use(express.json()); // Middleware to parse JSON request bodies
 
 // Set up CORS to allow requests from the frontend URL (for deployment)
-const frontendUrl = process.env.FRONTEND_URL;
-app.use(cors({ origin: frontendUrl || '*' }));  // Allow frontend URL to access backend API
+// const frontendUrl = process.env.FRONTEND_URL;
+// app.use(cors({ origin: frontendUrl || '*' }));  // Allow frontend URL to access backend API
+
+const allowedOrigins = [
+  'http://localhost:3000', // Localhost
+  'https://lmm-4wbi.onrender.com',
+  
+  
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI; // MongoDB URI from .env
