@@ -14,21 +14,32 @@ const AssignedParticipant = () => {
   }
 
   return (
-    <div className="bg-white p-8">
+    <div className="bg-white p-8 mt-12">
       <h2 className="text-3xl font-bold text-center text-red-600 mb-6">Assigned Participant</h2>
       <div className="flex flex-col items-center">
+        {/* <img
+          src={selectedParticipant.photo || 'https://via.placeholder.com/150'}
+          alt={selectedParticipant.name}
+          className="w-40 h-40 rounded-full mb-4"
+        /> */}
+        <h3 className="text-xl font-semibold">Hello {userDetails.name}</h3>
+        {/* <p>{selectedParticipant.phone}</p> */}
+      </div>
+      <div className="mt-4 text-center">
+        <h3 className="text-lg">You are buying a gift for:</h3>
+        <p className="text-2xl font-semibold">{selectedParticipant.name} </p>
+        <p className="text-lg">{selectedParticipant.phone}</p>
+        <div className="flex flex-col items-center">
         <img
           src={selectedParticipant.photo || 'https://via.placeholder.com/150'}
           alt={selectedParticipant.name}
           className="w-40 h-40 rounded-full mb-4"
         />
-        <h3 className="text-xl font-semibold">{selectedParticipant.name}</h3>
-        <p>{selectedParticipant.phone}</p>
-      </div>
-      <div className="mt-4 text-center">
-        <h3 className="text-lg">You are buying a gift for:</h3>
-        <p className="text-2xl font-semibold">{userDetails.name} {userDetails.surname}</p>
-        <p className="text-lg">{userDetails.phone}</p>
+
+        </div>
+         
+        {/* <p className="text-2xl font-semibold">{userDetails.name} {userDetails.surname}</p>
+        <p className="text-lg">{userDetails.phone}</p> */}
       </div>
     </div>
   );

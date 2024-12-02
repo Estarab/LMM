@@ -40,7 +40,7 @@ function App() {
         {/* Only allow access to GiftExchangePicker if the user is logged in */}
         <Route
           path="/"
-          element={user ? <GiftExchangePicker handleLogout={handleLogout} /> : <Navigate to="/signup" />}
+          element={user ? <GiftExchangePicker handleLogout={handleLogout} /> : <Navigate to="/login" />}
         />
 
         <Route path="/assigned-participant" element={<AssignedParticipant />} />

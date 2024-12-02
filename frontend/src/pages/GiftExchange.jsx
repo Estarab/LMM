@@ -4,13 +4,37 @@ import axios from 'axios';
 
 // Static data for participants (only name, phone, and photo)
 const participantsData = [
-  { name: 'Esther', phone: '123-456-7890', photo: 'https://via.placeholder.com/150' },
-  { name: 'Abraham', phone: '234-567-8901', photo: 'https://via.placeholder.com/150' },
-  { name: 'Solomon', phone: '345-678-9012', photo: 'https://via.placeholder.com/150' },
-  { name: 'Peku', phone: '456-789-0123', photo: 'https://via.placeholder.com/150' },
-  { name: 'Lisa', phone: '567-890-1234', photo: 'https://via.placeholder.com/150' },
-  // Add more participants as needed...
+  { name: 'Sister Esther Abrahams', phone: '123-456-7890', photo: 'https://via.placeholder.com/150' },
+  { name: 'Brother Abraham', phone: '234-567-8901', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Abigail Group Church', phone: '345-678-9012', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Abigail Kambishi', phone: '456-789-0123', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Abigail Uptown', phone: '567-890-1234', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Bertha', phone: '678-901-2345', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Chimuka Munkombwe', phone: '789-012-3456', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Evelyn Palm Drive', phone: '890-123-4567', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Esnart Possible', phone: '901-234-5678', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Felistus', phone: '012-345-6789', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Hope Uptown', phone: '123-456-7890', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Joyce', phone: '234-567-8901', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Leni', phone: '345-678-9012', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Lisa Pinto', phone: '456-789-0123', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Louise', phone: '567-890-1234', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Lucia Palm Drive', phone: '678-901-2345', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Margaret Uptown', phone: '789-012-3456', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Mary TM', phone: '890-123-4567', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Memory Nayame', phone: '901-234-5678', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Natasha Chewe', phone: '012-345-6789', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Nomathemba', phone: '123-456-7890', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Petronella', phone: '234-567-8901', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Rosemary', phone: '345-678-9012', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Rudo', phone: '456-789-0123', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Ruth Mweemba', phone: '567-890-1234', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Taonga Ngoma', phone: '678-901-2345', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Taonga Titus', phone: '789-012-3456', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Tamika', phone: '890-123-4567', photo: 'https://via.placeholder.com/150' },
+  { name: 'King Gwen', phone: '901-234-5678', photo: 'https://via.placeholder.com/150' }
 ];
+
 
 const GiftExchange = () => {
   const [selectedNumber, setSelectedNumber] = useState(null);
@@ -116,7 +140,7 @@ const GiftExchange = () => {
       <h2 className="text-3xl font-bold text-center text-red-600 mb-6">Gift Exchange</h2>
 
       <div className="grid grid-cols-5 gap-4 mb-6">
-        {[...Array(50).keys()].map((i) => (
+        {[...Array(32).keys()].map((i) => (
           !clickedParticipants.has(i + 1) ? (
             <button
               key={i}
