@@ -6,6 +6,7 @@ import AssignedParticipant from './pages/AssignedParticipant';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import GiftExchange from './pages/GiftExchange';
+import SuccessPage from './pages/SuccessPage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -39,11 +40,12 @@ function App() {
         {/* Only allow access to GiftExchangePicker if the user is logged in */}
         <Route
           path="/"
-          element={user ? <GiftExchangePicker handleLogout={handleLogout} /> : <Navigate to="/login" />}
+          element={user ? <GiftExchangePicker handleLogout={handleLogout} /> : <Navigate to="/signup" />}
         />
 
         <Route path="/assigned-participant" element={<AssignedParticipant />} />
         <Route path="/gift-exchange" element={<GiftExchange/>} />
+        <Route path="/success" element={<SuccessPage/>} />
         
       </Routes>
     </Router>
