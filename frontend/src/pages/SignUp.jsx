@@ -91,8 +91,8 @@ function SignUp() {
         </form>
 
         <div className="text-center mt-4">
-          <span className="text-sm text-gray-600">Already have an account? </span>
-          <a href="/login" className="text-green-500 hover:underline">Login</a>
+          {/* <span className="text-sm text-gray-600">Already have an account? </span>
+          <a href="/login" className="text-green-500 hover:underline">Login</a> */}
         </div>
       </div>
     </div>

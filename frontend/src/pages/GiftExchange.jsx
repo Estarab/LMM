@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Static data for participants (only name, phone, and photo)
 const participantsData = [
-  { name: 'Sister Esther Abrahams', phone: '123-456-7890', photo: 'https://via.placeholder.com/150' },
+  { name: 'Sister Esther Abrahams', phone: '', photo: 'https://via.placeholder.com/150' },
   { name: 'Brother Abraham', phone: '234-567-8901', photo: 'https://via.placeholder.com/150' },
   { name: 'Sister Abigail Group Church', phone: '345-678-9012', photo: 'https://via.placeholder.com/150' },
   { name: 'Sister Abigail Kambishi', phone: '456-789-0123', photo: 'https://via.placeholder.com/150' },
