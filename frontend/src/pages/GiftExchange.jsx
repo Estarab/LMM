@@ -196,6 +196,70 @@ const GiftExchange = () => {
 
       {/* Modal for submitting participant details */}
       {modalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div className="bg-white p-8 rounded-lg w-full sm:w-96">
+      <h3 className="text-2xl font-semibold mb-4 text-center">Enter your details</h3>
+      <form onSubmit={handleFormSubmit}>
+        <div className="mb-4">
+          <label className="block font-medium" htmlFor="name">First Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter Your First Name"
+            className="w-full p-2 border border-gray-300 rounded"
+            value={userDetails.name}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block font-medium" htmlFor="surname">Last Name</label>
+          <input
+            type="text"
+            name="surname"
+            id="surname"
+            placeholder="Enter Your Last Name"
+            className="w-full p-2 border border-gray-300 rounded"
+            value={userDetails.surname}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block font-medium" htmlFor="phone">Password</label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="Enter Your PassWord"
+            className="w-full p-2 border border-gray-300 rounded"
+            value={userDetails.phone}
+            onChange={handleInputChange}
+          />
+        </div>
+        {phoneError && (
+          <div className="text-red-600 text-sm mb-4">{phoneError}</div>
+        )}
+        <div className="flex justify-between">
+          <button
+            type="button"
+            className="px-4 py-2 bg-red-500 text-white rounded"
+            onClick={closeModal}
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="px-4 py-2 bg-green-600 text-white rounded"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
+      {/* {modalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg w-full sm:w-96">
             <h3 className="text-2xl font-semibold mb-4 text-center">Enter your details</h3>
@@ -257,7 +321,7 @@ const GiftExchange = () => {
             </form>
           </div>
         </div>
-      )}
+      )} */}
 
       <FooterSection />
     </div>
