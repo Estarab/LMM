@@ -81,7 +81,7 @@ const PickedParticipants = () => {
             onClick={handlePhoneVerificationClick}
             className="bg-blue-600 text-white p-3 rounded-md w-full sm:w-auto"
           >
-            Click here to add a participant who has already been picked, only for admins
+            Click here to add a participant who has already been picked. (only for admins)
           </button>
         </div>
       ) : (
