@@ -29,15 +29,61 @@ router.post('/submit-participant', async (req, res) => {
 
   } catch (error) {
     if (error.code === 11000) {  // MongoDB error code for duplicate key
-      return res.status(400).json({ message: 'This pickedParticipantId is already taken.' });
+      const fieldName = Object.keys(error.keyValue)[0];  // Get the field causing the duplication
+      return res.status(400).json({
+        message: `Duplicate error: The value for '${fieldName}' is already taken. Please choose a different one.`,
+        details: error.keyValue
+      });
     }
     console.error('Error saving participant:', error);
     return res.status(500).json({ message: 'An error occurred while submitting your details.' });
   }
 });
 
-
 export default router;
+
+
+
+// import express from 'express';
+// import Participant from '../models/Participant.js';
+// import Picker from '../models/Picker.js';
+
+// const router = express.Router();
+
+// // Endpoint to submit the picked participant details
+// router.post('/submit-participant', async (req, res) => {
+//   const { name, surname, phone, pickedParticipantId } = req.body;
+
+//   try {
+//     // Check if the pickedParticipantId already exists in either the Participant or Picker collection
+//     const existingParticipant = await Participant.findOne({ pickedParticipantId });
+
+//     if (existingParticipant) {
+//       return res.status(400).json({ message: 'This participant ID has already been picked!' });
+//     }
+
+//     // Create a new participant if no duplicates are found
+//     const newParticipant = new Participant({
+//       name,
+//       surname,
+//       phone,
+//       pickedParticipantId,
+//     });
+
+//     await newParticipant.save();
+//     return res.status(201).json({ message: 'Participant successfully picked!' });
+
+//   } catch (error) {
+//     if (error.code === 11000) {  // MongoDB error code for duplicate key
+//       return res.status(400).json({ message: 'This pickedParticipantId is already taken.' });
+//     }
+//     console.error('Error saving participant:', error);
+//     return res.status(500).json({ message: 'An error occurred while submitting your details.' });
+//   }
+// });
+
+
+// export default router;
 
 
 

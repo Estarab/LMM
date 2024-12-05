@@ -13,7 +13,7 @@ router.post('/signup', async (req, res) => {
     const existingUser = await User.findOne({ phone });
 
     if (existingUser) {
-      return res.status(400).json({ message: 'Phone number is already registered!' });
+      return res.status(400).json({ message: ' already registered!' });
     }
 
     // Create new user
@@ -23,7 +23,7 @@ router.post('/signup', async (req, res) => {
     res.status(201).json({ message: 'User successfully signed up!' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: ' error' });
   }
 });
 
@@ -41,7 +41,7 @@ router.get('/check', async (req, res) => {
     res.status(200).json({ message: 'User is signed up!' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: ' error' });
   }
 });
 

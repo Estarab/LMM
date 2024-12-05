@@ -30,11 +30,11 @@ const AssignedParticipant = () => {
         <p className="text-2xl font-semibold">{selectedParticipant.name} </p>
         <p className="text-lg">{selectedParticipant.phone}</p>
         <div className="flex flex-col items-center">
-        <img
+        {/* <img
           src={selectedParticipant.photo || 'https://via.placeholder.com/150'}
           alt={selectedParticipant.name}
           className="w-40 h-40 rounded-full mb-4"
-        />
+        /> */}
 
         </div>
          

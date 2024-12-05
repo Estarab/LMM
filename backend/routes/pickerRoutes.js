@@ -1,7 +1,7 @@
 // backend/routes/pickerRoutes.js
 import express from 'express';
 import Picker from '../models/Picker.js';
-import Participant from '../models/Participant.js';  // Add Participant model import
+import Participant from '../models/Participant.js';
 
 const router = express.Router();
 
@@ -15,27 +15,75 @@ router.post('/pick', async (req, res) => {
     const existingPicker = await Picker.findOne({ pickedParticipantId });
 
     if (existingParticipant || existingPicker) {
-      return res.status(400).json({ message: 'This participant ID has already been picked by someone!' });
+      return res.status(400).json({ message: `The participant ID (${pickedParticipantId}) has already been picked. Please choose another.` });
     }
 
-    // Check if the phone number is already used
+    // Check if the phone number has already been used by a picker
     const phoneExists = await Picker.findOne({ phone });
     if (phoneExists) {
-      return res.status(400).json({ message: 'This phone number has already been used.' });
+      return res.status(400).json({ message: 'This phone number has already been used for another pick.' });
     }
 
-    // Create new picker
+    // Create new picker entry
     const newPicker = new Picker({ name, surname, phone, pickedParticipantId });
     await newPicker.save();
 
-    return res.status(201).json({ message: 'Picker details saved successfully.' });
+    return res.status(201).json({ message: 'Picker details saved successfully!' });
+
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: 'Internal server error' });
+    console.error('Error saving picker:', error);
+    if (error.code === 11000) {
+      // If it's a MongoDB duplicate error
+      return res.status(400).json({ message: 'Duplicate entry error. The participant ID might have been taken already.' });
+    }
+    return res.status(500).json({ message: 'An internal server error occurred. Please try again later.' });
   }
 });
 
 export default router;
+
+
+
+
+
+// // backend/routes/pickerRoutes.js
+// import express from 'express';
+// import Picker from '../models/Picker.js';
+// import Participant from '../models/Participant.js';  // Add Participant model import
+
+// const router = express.Router();
+
+// // Route to save picker data
+// router.post('/pick', async (req, res) => {
+//   const { name, surname, phone, pickedParticipantId } = req.body;
+
+//   try {
+//     // Check if the pickedParticipantId already exists in either the Participant or Picker collection
+//     const existingParticipant = await Participant.findOne({ pickedParticipantId });
+//     const existingPicker = await Picker.findOne({ pickedParticipantId });
+
+//     if (existingParticipant || existingPicker) {
+//       return res.status(400).json({ message: 'This participant ID has already been picked by someone!' });
+//     }
+
+//     // Check if the phone number is already used
+//     const phoneExists = await Picker.findOne({ phone });
+//     if (phoneExists) {
+//       return res.status(400).json({ message: 'This phone number has already been used.' });
+//     }
+
+//     // Create new picker
+//     const newPicker = new Picker({ name, surname, phone, pickedParticipantId });
+//     await newPicker.save();
+
+//     return res.status(201).json({ message: 'Picker details saved successfully.' });
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: 'Internal server error' });
+//   }
+// });
+
+// export default router;
 
 
 

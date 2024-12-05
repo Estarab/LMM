@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function LoginPart() {
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ function Login() {
 
       // If the phone number is found, navigate to the GiftExchangePicker
       if (response.data.message === 'User is signed up!') {
-        navigate('/gift-exchange');
+        navigate('/assigned-participant');
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong');
@@ -69,72 +69,4 @@ function Login() {
   );
 }
 
-export default Login;
-
-
-
-
-// // src/pages/Login.js
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
-
-// function Login() {
-//   const [phone, setPhone] = useState('');
-//   const [error, setError] = useState('');
-//   const navigate = useNavigate();
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     try {
-//       // Check if the phone number exists in the database
-//       const response = await axios.get('http://localhost:5000/api/auth/check', {
-//         params: { phone },
-//       });
-
-//       // If the phone number is found, navigate to the GiftExchangePicker
-//       if (response.data.message === 'User is signed up!') {
-//         navigate('/gift-exchange');
-//       }
-//     } catch (err) {
-//       setError(err.response?.data?.message || 'Something went wrong');
-//     }
-//   };
-
-//   return (
-//     <div className="login-container">
-//       <h2>Login</h2>
-//       {error && <p className="error">{error}</p>}
-//       <form onSubmit={handleSubmit}>
-//         <input
-//           type="text"
-//           placeholder="Enter your phone number"
-//           value={phone}
-//           onChange={(e) => setPhone(e.target.value)}
-//           required
-//         />
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default Login;
-
-
-
-
-// import React from 'react'
-
-// import LoginComp from '../components/LoginComp'
-
-// function Login() {
-//   return (
-//     <div>
-//       <LoginComp/>
-//     </div>
-//   )
-// }
-
-// export default Login
+export default LoginPart;
