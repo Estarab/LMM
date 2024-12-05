@@ -1,7 +1,7 @@
 
 import express from 'express';             // Using ES import
 import path from 'path';
-import { fileURLToPath } from 'url'; 
+import { fileURLToPath } from 'url'; // Import fileURLToPath from 'url'
 import cors from 'cors';                  // Using ES import
 import dotenv from 'dotenv';              // Using ES import
 import mongoose from 'mongoose';          // Using ES import
@@ -9,14 +9,14 @@ import Participant from './models/Participant.js'; // Using ES import with file 
 import User from './models/User.js';  
 import authRoute from './routes/auth.js';      // Assuming we create a User model for sign-up/login
 
-// Get the current directory
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 dotenv.config(); // Load environment variables from .env
 
 const app = express();
 app.use(express.json()); // Middleware to parse JSON request bodies
+
+// Get the current directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -62,7 +62,7 @@ app.post('/api/signup', async (req, res) => {
     // Check if user already exists
     const existingUser = await User.findOne({ phone });
     if (existingUser) {
-      return res.status(400).json({ message: 'User already exists with this phone number!' });
+      return res.status(400).json({ message: 'User already exists!' });
     }
 
     // Create a new user
@@ -89,7 +89,7 @@ app.post('/api/login', async (req, res) => {
     // Check if user exists
     const existingUser = await User.findOne({ phone });
     if (!existingUser) {
-      return res.status(400).json({ message: 'No user found with this phone number!' });
+      return res.status(400).json({ message: 'No user found ' });
     }
 
     // User found, proceed to login
