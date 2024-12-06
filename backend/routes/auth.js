@@ -1,3 +1,7 @@
+
+
+
+
 // backend/routes/auth.js
 import express from 'express';
 import User from '../models/User.js';
@@ -28,6 +32,7 @@ router.post('/signup', async (req, res) => {
 });
 
 // Check if a user is signed up
+// Check if a user is signed up
 router.get('/check', async (req, res) => {
   const { phone } = req.query;
 
@@ -35,13 +40,15 @@ router.get('/check', async (req, res) => {
     const user = await User.findOne({ phone });
 
     if (!user) {
-      return res.status(400).json({ message: 'You need to sign up first!' });
+      // Inform the user that they need to sign up first
+      return res.status(404).json({ message: 'Phone number not registered. Please sign up first.' });
     }
 
+    // If the user is found, return a success message
     res.status(200).json({ message: 'User is signed up!' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: ' error' });
+    res.status(500).json({ message: 'Error checking phone number. Please try again later.' });
   }
 });
 

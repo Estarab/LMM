@@ -71,17 +71,17 @@ const PickedParticipants = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md mb-24 max-w-screen-lg mx-auto">
       <h3 className="text-2xl font-semibold text-center mb-4">Already Picked Participants</h3>
-      <p className="text-lg text-center mb-4">All participant-Numbers that have already been picked are listed in this section.</p>
-      <p className="text-lg text-center mb-4">Please check the picked participants here and only select the ones that are not on this list!</p>
+      <p className="text-lg text-center mb-4">All participant-Numbers that have already been picked are in Green.</p>
+      {/* <p className="text-lg text-center mb-4">Please check the picked participants here and only select the ones that are not on this list!</p> */}
 
       {/* Display button to start the phone verification process */}
       {!isVerifyingPhone ? (
         <div className="mb-4 flex justify-center">
           <button
             onClick={handlePhoneVerificationClick}
-            className="bg-blue-600 text-white p-3 rounded-md w-full sm:w-auto"
+            className="bg-green-600 text-white p-3 rounded-md w-full sm:w-auto"
           >
-            Click here to add a participant who has already been picked. (only for admins)
+            Numbers Already Picked are Marked Green, Picking them will give you an Error
           </button>
         </div>
       ) : (
