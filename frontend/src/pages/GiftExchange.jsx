@@ -221,7 +221,7 @@ const GiftExchange = () => {
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6 text-lg font-bold">
   <button
     onClick={() => handleButtonClick(1)}
-    className={`w-full p-3 rounded-lg bg-red-600 text-white hover:bg-red-700 ${disabledButtons.has(1) ? 'opacity-50 cursor-not-allowed' : ''}`}
+    className={`w-full p-3 rounded-lg bg-green-600 text-white hover:bg-red-700 ${disabledButtons.has(1) ? 'opacity-50 cursor-not-allowed' : ''}`}
     disabled={disabledButtons.has(1)}
   >
     Participant 1
@@ -403,7 +403,7 @@ const GiftExchange = () => {
   </button>
   <button
     onClick={() => handleButtonClick(26)}
-    className={`w-full p-3 rounded-lg bg-red-600 text-white hover:bg-red-700 ${disabledButtons.has(26) ? 'opacity-50 cursor-not-allowed' : ''}`}
+    className={`w-full p-3 rounded-lg bg-green-600 text-white hover:bg-red-700 ${disabledButtons.has(26) ? 'opacity-50 cursor-not-allowed' : ''}`}
     disabled={disabledButtons.has(26)}
   >
     Participant 26
@@ -493,7 +493,7 @@ const GiftExchange = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block font-medium" htmlFor="phone">Your Phone Number:</label>
+                <label className="block font-medium" htmlFor="phone">Your Password:</label>
                 <input
                   type="text"
                   id="phone"
